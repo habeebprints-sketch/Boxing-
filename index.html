@@ -1,146 +1,390 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultimate Boxing Game Complete</title>
+<title>Bola Olat Private College Yearbook 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body { margin:0; font-family:Arial; background:#000; color:white; text-align:center; }
-.screen { display:none; }
-.active { display:block; }
-button { padding:10px; margin:5px; font-size:16px; }
-.ring { width:90%; max-width:900px; height:420px; margin:auto; border:5px solid white; position:relative; background:#222; overflow:hidden; }
-.fighter { width:100px; position:absolute; bottom:40px; transition:0.2s; }
-#p1 { left:50px; }
-#p2 { right:50px; }
-.healthbar { width:80%; margin:5px auto; background:red; height:20px; }
-.health { height:100%; background:lime; width:100%; }
-.ref { position:absolute; left:50%; transform:translateX(-50%); bottom:60px; }
-.timer { font-size:20px; }
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b1020;
+    color:white;
+}
+
+/* COVER PAGE */
+
+.cover{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    background:linear-gradient(135deg,#07142e,#0d1f45,#07142e);
+}
+
+.cover-box{
+    width:100%;
+    max-width:1000px;
+    background:rgba(255,255,255,0.05);
+    border:2px solid #ff6b00;
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
+
+.logo{
+    width:180px;
+    margin-bottom:25px;
+}
+
+.school-name{
+    font-size:60px;
+    font-weight:700;
+    color:#ffffff;
+    margin-bottom:10px;
+}
+
+.year{
+    color:#ff6b00;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.motto{
+    font-size:24px;
+    color:#cfcfcf;
+    margin-bottom:40px;
+}
+
+.line{
+    width:120px;
+    height:5px;
+    background:#ff6b00;
+    margin:auto;
+    border-radius:10px;
+}
+
+/* SECTION */
+
+.section{
+    padding:80px 10%;
+}
+
+.section-title{
+    font-size:40px;
+    color:#ff6b00;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#111b38;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:30px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.card h3{
+    color:#ff6b00;
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:1.8;
+    color:#ddd;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.student{
+    background:#111b38;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.student:hover{
+    transform:translateY(-8px);
+}
+
+.student img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.student-info{
+    padding:20px;
+}
+
+.student-info h4{
+    color:#ff6b00;
+    margin-bottom:10px;
+}
+
+.student-info p{
+    color:#ddd;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:40px;
+    background:#050b18;
+    color:#bbb;
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+    background:#ff6b00;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+}
+
 </style>
 </head>
-<body><h1>🥊 Ultimate Boxing Game</h1><!-- MENU --><div id="menu" class="screen active">
-    <h2>Main Menu</h2>
-    <button onclick="goSelect()">Start Game</button>
-</div><!-- SELECT --><div id="select" class="screen">
-    <h2>Select Fighter</h2>
-    <button onclick="choose('Naija Champ 🇳🇬')">Naija Champ 🇳🇬</button>
-    <button onclick="choose('UK Warrior 🇬🇧')">UK Warrior 🇬🇧</button>
-</div><!-- GAME --><div id="game" class="screen">
-    <div id="playerName"></div>
-    <div class="healthbar"><div id="h1" class="health"></div></div><div>Enemy</div>
-<div class="healthbar"><div id="h2" class="health"></div></div>
 
-<div class="timer">Round: <span id="round">1</span> | Time: <span id="time">30</span></div>
+<body>
 
-<div class="ring">
-    <img id="p1" class="fighter" src="https://i.imgur.com/7QZ7Z6F.png">
-    <img id="p2" class="fighter" src="https://i.imgur.com/7QZ7Z6F.png">
-    <div class="ref">👨‍⚖️</div>
+<!-- COVER PAGE -->
+
+<section class="cover">
+
+<div class="cover-box">
+
+<img src="logo.png" class="logo">
+
+<h1 class="school-name">
+BOLA OLAT PRIVATE COLLEGE
+</h1>
+
+<h2 class="year">
+YEARBOOK 2026
+</h2>
+
+<p class="motto">
+“Hard Work and Honesty”
+</p>
+
+<div class="line"></div>
+
+<a href="#welcome" class="btn">
+Open Yearbook
+</a>
+
 </div>
 
-<button onclick="move(-20)">⬅️</button>
-<button onclick="move(20)">➡️</button>
-<button onclick="attack('light')">Punch</button>
-<button onclick="attack('heavy')">Heavy</button>
-<button onclick="block()">Block</button>
+</section>
 
-</div><script>
-let h1=100,h2=100;
-let stamina=100;
-let blocking=false;
-let round=1;
-let time=30;
-let timer;
+<!-- WELCOME -->
 
-function show(id){
- document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
-}
+<section class="section" id="welcome">
 
-function goSelect(){ show('select'); }
+<h2 class="section-title">
+Welcome Message
+</h2>
 
-function choose(name){
- document.getElementById('playerName').innerText=name;
- show('game');
- startRound();
-}
+<div class="card">
 
-function update(){
- document.getElementById('h1').style.width=h1+'%';
- document.getElementById('h2').style.width=h2+'%';
- document.getElementById('round').innerText=round;
- document.getElementById('time').innerText=time;
-}
+<h3>Principal’s Address</h3>
 
-function move(x){
- let p=document.getElementById('p1');
- let current=parseInt(p.style.left||50);
- p.style.left=(current+x)+'px';
-}
+<p>
+Welcome to the 2026 edition of Bola Olat Private College Yearbook.
+This year has been filled with excellence, achievements,
+friendship, memories, and growth.
+We celebrate every student, teacher, and parent
+who contributed to making this session successful.
+</p>
 
-function attack(type){
- if(stamina<=0) return;
- let dmg= type==='heavy'?20:10;
- stamina-= type==='heavy'?20:10;
- if(Math.random()<0.3) dmg*=2;
- if(!blocking) h2-=dmg;
- enemyAI();
- update();
- check();
-}
+</div>
 
-function block(){
- blocking=true;
- setTimeout(()=>blocking=false,1000);
-}
+</section>
 
-function enemyAI(){
- let move=Math.random();
- if(move<0.6){
-  let dmg=10;
-  if(!blocking) h1-=dmg;
- }
-}
+<!-- SCHOOL HISTORY -->
 
-function check(){
- if(h1<=0){ alert('You Lost'); resetGame(); }
- if(h2<=0){ alert('You Win'); resetGame(); }
-}
+<section class="section">
 
-function startRound(){
- time=30;
- clearInterval(timer);
- timer=setInterval(()=>{
-  time--;
-  if(time<=0){
-    round++;
-    if(round>3){ endMatch(); }
-    else startRound();
-  }
-  update();
- },1000);
-}
+<h2 class="section-title">
+School History
+</h2>
 
-function endMatch(){
- clearInterval(timer);
- if(h1>h2) alert('You Win Match'); else alert('You Lose Match');
- resetGame();
-}
+<div class="card">
 
-function resetGame(){
- h1=100; h2=100; stamina=100; round=1;
- show('menu');
- update();
-}
+<p>
+Bola Olat Private College is committed to academic excellence,
+discipline, leadership, and moral values.
+The school continues to raise future leaders through quality education
+and integrity.
+</p>
 
-window.addEventListener('keydown',e=>{
- if(e.key==='a') move(-20);
- if(e.key==='d') move(20);
- if(e.key==='j') attack('light');
- if(e.key==='k') attack('heavy');
- if(e.key==='l') block();
-});
+</div>
 
-update();
-</script></body>
+</section>
+
+<!-- PREFECTS -->
+
+<section class="section">
+
+<h2 class="section-title">
+School Prefects
+</h2>
+
+<div class="grid">
+
+<div class="student">
+<img src="student1.jpg">
+<div class="student-info">
+<h4>Head Boy</h4>
+<p>Name Here</p>
+</div>
+</div>
+
+<div class="student">
+<img src="student2.jpg">
+<div class="student-info">
+<h4>Head Girl</h4>
+<p>Name Here</p>
+</div>
+</div>
+
+<div class="student">
+<img src="student3.jpg">
+<div class="student-info">
+<h4>Sports Prefect</h4>
+<p>Name Here</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- GRADUATING CLASS -->
+
+<section class="section">
+
+<h2 class="section-title">
+Graduating Class 2026
+</h2>
+
+<div class="grid">
+
+<div class="student">
+<img src="student4.jpg">
+<div class="student-info">
+<h4>Student Name</h4>
+<p>
+“Dream big and never give up.”
+</p>
+</div>
+</div>
+
+<div class="student">
+<img src="student5.jpg">
+<div class="student-info">
+<h4>Student Name</h4>
+<p>
+“Success starts with discipline.”
+</p>
+</div>
+</div>
+
+<div class="student">
+<img src="student6.jpg">
+<div class="student-info">
+<h4>Student Name</h4>
+<p>
+“Hard work always pays.”
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- EVENTS -->
+
+<section class="section">
+
+<h2 class="section-title">
+School Events
+</h2>
+
+<div class="card">
+
+<h3>Highlights of 2026</h3>
+
+<p>
+• Inter-house sports competition <br><br>
+• Cultural Day celebration <br><br>
+• Excursions and educational trips <br><br>
+• Debate and quiz competitions <br><br>
+• Graduation ceremony <br><br>
+• Award presentations
+</p>
+
+</div>
+
+</section>
+
+<!-- QUOTES -->
+
+<section class="section">
+
+<h2 class="section-title">
+Memorable Quotes
+</h2>
+
+<div class="card">
+
+<p>
+“Education is the passport to the future.” <br><br>
+
+“Every ending is the start of another journey.” <br><br>
+
+“Friendship made school beautiful.”
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<p>
+Bola Olat Private College © 2026 <br>
+The Only Legacy
+</p>
+
+</footer>
+
+</body>
 </html>
